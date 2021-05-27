@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_file
 
 app = Flask(__name__)
 visited = set()
-current_assignment = 1
+current_assignment = 0 
 total_assignments = 40
 
 @app.route('/')
@@ -25,7 +25,7 @@ def process_data():
 
 @app.route('/downloadAssignment', methods=['GET'])
 def download_assignment():
-    return send_file('static/pdfs/assignment.pdf',
+    return send_file('static/pdfs/assignment1.pdf',
                      attachment_filename='assignment.pdf',
                      as_attachment=True)
 
@@ -37,3 +37,6 @@ def download_new_assignment():
     return send_file('static/pdfs/assignment.pdf',
                      attachment_filename='assignment.pdf',
                      as_attachment=True)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=3000)

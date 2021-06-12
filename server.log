@@ -1,0 +1,199 @@
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger pin code: 608-213-007
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2021 12:21:03] "POST /api/assignment HTTP/1.1" 500 -
+ERROR:root:invalid email "asdfasdf"
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2021 12:22:22] "POST /api/assignment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2021 12:22:25] "GET /api/assignment HTTP/1.1" 405 -
+ERROR:root:invalid email "asdfasdf@asdf.com"
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2021 12:22:40] "POST /api/assignment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2021 12:22:40] "GET /robots.txt?1623522145362 HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2021 12:22:42] "GET /api/assignment HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2021 12:22:49] "GET /api/assignment HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2021 12:22:49] "GET /robots.txt?1623522162623 HTTP/1.1" 404 -
+06/12/2021 12:23:18 PM  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+06/12/2021 12:23:18 PM  * Restarting with stat
+06/12/2021 12:23:19 PM  * Debugger is active!
+06/12/2021 12:23:19 PM  * Debugger pin code: 608-213-007
+06/12/2021 12:23:27 PM invalid email "asdfasdf@asdf.com"
+06/12/2021 12:23:27 PM 127.0.0.1 - - [12/Jun/2021 12:23:27] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 01:04:53 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 01:04:53 PM  * Restarting with stat
+06/12/2021 01:04:55 PM  * Debugger is active!
+06/12/2021 01:04:55 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:05:08 PM 127.0.0.1 - - [12/Jun/2021 13:05:08] "POST /api/assignment HTTP/1.1" 500 -
+06/12/2021 01:05:34 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 01:05:34 PM  * Restarting with stat
+06/12/2021 01:05:36 PM  * Debugger is active!
+06/12/2021 01:05:36 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:05:38 PM 127.0.0.1 - - [12/Jun/2021 13:05:38] "POST /api/assignment HTTP/1.1" 500 -
+06/12/2021 01:06:03 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/dbutils.py', reloading
+06/12/2021 01:06:03 PM  * Restarting with stat
+06/12/2021 01:06:05 PM  * Debugger is active!
+06/12/2021 01:06:05 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:07:10 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/dbutils.py', reloading
+06/12/2021 01:07:10 PM  * Restarting with stat
+06/12/2021 01:07:11 PM  * Debugger is active!
+06/12/2021 01:07:11 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:07:53 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/dbutils.py', reloading
+06/12/2021 01:07:54 PM  * Restarting with stat
+06/12/2021 01:07:55 PM  * Debugger is active!
+06/12/2021 01:07:55 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:08:41 PM 127.0.0.1 - - [12/Jun/2021 13:08:41] "POST /api/assignment HTTP/1.1" 500 -
+06/12/2021 01:11:09 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 01:11:09 PM  * Restarting with stat
+06/12/2021 01:11:11 PM  * Debugger is active!
+06/12/2021 01:11:11 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:11:34 PM 127.0.0.1 - - [12/Jun/2021 13:11:34] "POST /api/assignment HTTP/1.1" 500 -
+06/12/2021 01:12:08 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 01:12:09 PM  * Restarting with stat
+06/12/2021 01:12:11 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:12:12 PM 127.0.0.1 - - [12/Jun/2021 13:12:12] "POST /api/assignment HTTP/1.1" 500 -
+06/12/2021 01:12:14 PM 127.0.0.1 - - [12/Jun/2021 13:12:14] "GET /api/assignment HTTP/1.1" 405 -
+06/12/2021 01:12:45 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 01:12:46 PM  * Restarting with stat
+06/12/2021 01:12:49 PM  * Debugger is active!
+06/12/2021 01:12:49 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:12:49 PM 127.0.0.1 - - [12/Jun/2021 13:12:49] "GET /robots.txt?1623525134518 HTTP/1.1" 404 -
+06/12/2021 01:12:50 PM 127.0.0.1 - - [12/Jun/2021 13:12:50] "POST /api/assignment HTTP/1.1" 500 -
+06/12/2021 01:12:52 PM 127.0.0.1 - - [12/Jun/2021 13:12:52] "GET /api/assignment HTTP/1.1" 405 -
+06/12/2021 01:13:19 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 01:13:20 PM  * Restarting with stat
+06/12/2021 01:13:22 PM  * Debugger is active!
+06/12/2021 01:13:22 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:13:22 PM 127.0.0.1 - - [12/Jun/2021 13:13:22] "GET /robots.txt?1623525172981 HTTP/1.1" 404 -
+06/12/2021 01:13:23 PM 127.0.0.1 - - [12/Jun/2021 13:13:23] "POST /api/assignment HTTP/1.1" 500 -
+06/12/2021 01:14:38 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 01:14:39 PM  * Restarting with stat
+06/12/2021 01:14:41 PM  * Debugger is active!
+06/12/2021 01:14:41 PM  * Debugger pin code: 608-213-007
+06/12/2021 01:14:41 PM 127.0.0.1 - - [12/Jun/2021 13:14:41] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 01:18:01 PM 127.0.0.1 - - [12/Jun/2021 13:18:01] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 01:18:09 PM 127.0.0.1 - - [12/Jun/2021 13:18:09] "GET / HTTP/1.1" 200 -
+06/12/2021 01:18:15 PM 127.0.0.1 - - [12/Jun/2021 13:18:15] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 01:26:32 PM 127.0.0.1 - - [12/Jun/2021 13:26:32] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 01:43:15 PM 127.0.0.1 - - [12/Jun/2021 13:43:15] "GET / HTTP/1.1" 200 -
+06/12/2021 01:43:23 PM 127.0.0.1 - - [12/Jun/2021 13:43:23] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 01:43:23 PM 127.0.0.1 - - [12/Jun/2021 13:43:23] "GET /robots.txt?1623526995187 HTTP/1.1" 404 -
+06/12/2021 01:53:01 PM 127.0.0.1 - - [12/Jun/2021 13:53:01] "GET / HTTP/1.1" 200 -
+06/12/2021 01:53:30 PM 127.0.0.1 - - [12/Jun/2021 13:53:30] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 01:53:30 PM 127.0.0.1 - - [12/Jun/2021 13:53:30] "GET /robots.txt?1623527582060 HTTP/1.1" 404 -
+06/12/2021 01:53:49 PM 127.0.0.1 - - [12/Jun/2021 13:53:49] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 01:53:53 PM 127.0.0.1 - - [12/Jun/2021 13:53:53] "GET / HTTP/1.1" 200 -
+06/12/2021 01:53:56 PM 127.0.0.1 - - [12/Jun/2021 13:53:56] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 01:53:56 PM 127.0.0.1 - - [12/Jun/2021 13:53:56] "GET /robots.txt?1623527633705 HTTP/1.1" 404 -
+06/12/2021 02:08:39 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:08:39 PM  * Restarting with stat
+06/12/2021 02:08:42 PM  * Debugger is active!
+06/12/2021 02:08:42 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:08:59 PM 127.0.0.1 - - [12/Jun/2021 14:08:59] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:11:41 PM 127.0.0.1 - - [12/Jun/2021 14:11:41] "GET /downloadAssignment HTTP/1.1" 200 -
+06/12/2021 02:20:33 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:20:33 PM  * Restarting with stat
+06/12/2021 02:20:36 PM  * Debugger is active!
+06/12/2021 02:20:36 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:20:42 PM 127.0.0.1 - - [12/Jun/2021 14:20:42] "GET / HTTP/1.1" 200 -
+06/12/2021 02:20:47 PM 127.0.0.1 - - [12/Jun/2021 14:20:47] "GET /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:20:47 PM 127.0.0.1 - - [12/Jun/2021 14:20:47] "GET /robots.txt?1623529242195 HTTP/1.1" 404 -
+06/12/2021 02:21:14 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:21:14 PM  * Restarting with stat
+06/12/2021 02:21:17 PM  * Debugger is active!
+06/12/2021 02:21:17 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:21:37 PM 127.0.0.1 - - [12/Jun/2021 14:21:37] "GET / HTTP/1.1" 200 -
+06/12/2021 02:21:41 PM 127.0.0.1 - - [12/Jun/2021 14:21:41] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:21:41 PM 127.0.0.1 - - [12/Jun/2021 14:21:41] "GET /robots.txt?1623529297502 HTTP/1.1" 404 -
+06/12/2021 02:23:23 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:23:24 PM  * Restarting with stat
+06/12/2021 02:23:26 PM  * Debugger is active!
+06/12/2021 02:23:26 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:23:27 PM 127.0.0.1 - - [12/Jun/2021 14:23:27] "GET / HTTP/1.1" 200 -
+06/12/2021 02:23:30 PM 127.0.0.1 - - [12/Jun/2021 14:23:30] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:23:30 PM 127.0.0.1 - - [12/Jun/2021 14:23:30] "GET /robots.txt?1623529407922 HTTP/1.1" 404 -
+06/12/2021 02:26:09 PM 127.0.0.1 - - [12/Jun/2021 14:26:09] "GET / HTTP/1.1" 200 -
+06/12/2021 02:26:11 PM 127.0.0.1 - - [12/Jun/2021 14:26:11] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:26:11 PM 127.0.0.1 - - [12/Jun/2021 14:26:11] "GET /robots.txt?1623529569273 HTTP/1.1" 404 -
+06/12/2021 02:27:09 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:27:09 PM  * Restarting with stat
+06/12/2021 02:27:11 PM  * Debugger is active!
+06/12/2021 02:27:11 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:27:25 PM 127.0.0.1 - - [12/Jun/2021 14:27:25] "GET / HTTP/1.1" 200 -
+06/12/2021 02:27:28 PM 127.0.0.1 - - [12/Jun/2021 14:27:28] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:27:28 PM 127.0.0.1 - - [12/Jun/2021 14:27:28] "GET /robots.txt?1623529645544 HTTP/1.1" 404 -
+06/12/2021 02:29:23 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:29:23 PM  * Restarting with stat
+06/12/2021 02:29:25 PM  * Debugger is active!
+06/12/2021 02:29:25 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:29:38 PM 127.0.0.1 - - [12/Jun/2021 14:29:38] "GET / HTTP/1.1" 200 -
+06/12/2021 02:29:40 PM 127.0.0.1 - - [12/Jun/2021 14:29:40] "POST /api/assignment HTTP/1.1" 500 -
+06/12/2021 02:29:40 PM 127.0.0.1 - - [12/Jun/2021 14:29:40] "GET /robots.txt?1623529778435 HTTP/1.1" 404 -
+06/12/2021 02:30:18 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:30:18 PM  * Restarting with stat
+06/12/2021 02:30:19 PM  * Debugger is active!
+06/12/2021 02:30:19 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:30:21 PM 127.0.0.1 - - [12/Jun/2021 14:30:21] "POST /api/assignment HTTP/1.1" 500 -
+06/12/2021 02:32:02 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:32:03 PM  * Restarting with stat
+06/12/2021 02:32:05 PM  * Debugger is active!
+06/12/2021 02:32:05 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:32:05 PM 127.0.0.1 - - [12/Jun/2021 14:32:05] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:36:41 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:36:41 PM  * Restarting with stat
+06/12/2021 02:36:43 PM  * Debugger is active!
+06/12/2021 02:36:43 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:36:47 PM 127.0.0.1 - - [12/Jun/2021 14:36:47] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:37:08 PM 127.0.0.1 - - [12/Jun/2021 14:37:08] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:37:37 PM 127.0.0.1 - - [12/Jun/2021 14:37:37] "GET / HTTP/1.1" 200 -
+06/12/2021 02:37:42 PM 127.0.0.1 - - [12/Jun/2021 14:37:42] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:37:42 PM 127.0.0.1 - - [12/Jun/2021 14:37:42] "GET /robots.txt?1623530257483 HTTP/1.1" 404 -
+06/12/2021 02:40:43 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:40:44 PM  * Restarting with stat
+06/12/2021 02:40:46 PM  * Debugger is active!
+06/12/2021 02:40:46 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:40:47 PM 127.0.0.1 - - [12/Jun/2021 14:40:47] "GET / HTTP/1.1" 200 -
+06/12/2021 02:40:49 PM 127.0.0.1 - - [12/Jun/2021 14:40:49] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:40:49 PM 127.0.0.1 - - [12/Jun/2021 14:40:49] "GET /robots.txt?1623530447125 HTTP/1.1" 404 -
+06/12/2021 02:41:42 PM 127.0.0.1 - - [12/Jun/2021 14:41:42] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:42:22 PM 127.0.0.1 - - [12/Jun/2021 14:42:22] "GET / HTTP/1.1" 200 -
+06/12/2021 02:42:25 PM 127.0.0.1 - - [12/Jun/2021 14:42:25] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:42:25 PM 127.0.0.1 - - [12/Jun/2021 14:42:25] "GET /robots.txt?1623530542955 HTTP/1.1" 404 -
+06/12/2021 02:46:31 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:46:32 PM  * Restarting with stat
+06/12/2021 02:46:33 PM  * Debugger is active!
+06/12/2021 02:46:34 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:46:36 PM 127.0.0.1 - - [12/Jun/2021 14:46:36] "GET / HTTP/1.1" 200 -
+06/12/2021 02:46:38 PM 127.0.0.1 - - [12/Jun/2021 14:46:38] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:46:38 PM 127.0.0.1 - - [12/Jun/2021 14:46:38] "GET /robots.txt?1623530796686 HTTP/1.1" 404 -
+06/12/2021 02:47:32 PM 127.0.0.1 - - [12/Jun/2021 14:47:32] "GET / HTTP/1.1" 200 -
+06/12/2021 02:47:34 PM 127.0.0.1 - - [12/Jun/2021 14:47:34] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:47:34 PM 127.0.0.1 - - [12/Jun/2021 14:47:34] "GET /robots.txt?1623530852699 HTTP/1.1" 404 -
+06/12/2021 02:48:09 PM 127.0.0.1 - - [12/Jun/2021 14:48:09] "GET / HTTP/1.1" 200 -
+06/12/2021 02:48:10 PM 127.0.0.1 - - [12/Jun/2021 14:48:10] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:48:10 PM 127.0.0.1 - - [12/Jun/2021 14:48:10] "GET /robots.txt?1623530889693 HTTP/1.1" 404 -
+06/12/2021 02:48:13 PM 127.0.0.1 - - [12/Jun/2021 14:48:13] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:49:00 PM 127.0.0.1 - - [12/Jun/2021 14:49:00] "GET / HTTP/1.1" 200 -
+06/12/2021 02:49:09 PM 127.0.0.1 - - [12/Jun/2021 14:49:09] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:49:09 PM 127.0.0.1 - - [12/Jun/2021 14:49:09] "GET /robots.txt?1623530940153 HTTP/1.1" 404 -
+06/12/2021 02:50:10 PM 127.0.0.1 - - [12/Jun/2021 14:50:10] "GET / HTTP/1.1" 200 -
+06/12/2021 02:50:12 PM 127.0.0.1 - - [12/Jun/2021 14:50:12] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:50:12 PM 127.0.0.1 - - [12/Jun/2021 14:50:12] "GET /robots.txt?1623531010910 HTTP/1.1" 404 -
+06/12/2021 02:50:28 PM 127.0.0.1 - - [12/Jun/2021 14:50:28] "GET / HTTP/1.1" 200 -
+06/12/2021 02:50:29 PM 127.0.0.1 - - [12/Jun/2021 14:50:29] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:50:29 PM 127.0.0.1 - - [12/Jun/2021 14:50:29] "GET /robots.txt?1623531028443 HTTP/1.1" 404 -
+06/12/2021 02:50:47 PM 127.0.0.1 - - [12/Jun/2021 14:50:47] "GET / HTTP/1.1" 200 -
+06/12/2021 02:52:01 PM 127.0.0.1 - - [12/Jun/2021 14:52:01] "GET /robots.txt?1623531047650 HTTP/1.1" 404 -
+06/12/2021 02:52:01 PM 127.0.0.1 - - [12/Jun/2021 14:52:01] "GET / HTTP/1.1" 200 -
+06/12/2021 02:52:04 PM 127.0.0.1 - - [12/Jun/2021 14:52:04] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:52:04 PM 127.0.0.1 - - [12/Jun/2021 14:52:04] "GET /robots.txt?1623531121259 HTTP/1.1" 404 -
+06/12/2021 02:52:50 PM 127.0.0.1 - - [12/Jun/2021 14:52:50] "GET / HTTP/1.1" 200 -
+06/12/2021 02:52:51 PM 127.0.0.1 - - [12/Jun/2021 14:52:51] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:52:51 PM 127.0.0.1 - - [12/Jun/2021 14:52:51] "GET /robots.txt?1623531170474 HTTP/1.1" 404 -
+06/12/2021 02:53:41 PM 127.0.0.1 - - [12/Jun/2021 14:53:41] "GET / HTTP/1.1" 200 -
+06/12/2021 02:53:42 PM 127.0.0.1 - - [12/Jun/2021 14:53:42] "POST /api/assignment HTTP/1.1" 403 -
+06/12/2021 02:53:42 PM 127.0.0.1 - - [12/Jun/2021 14:53:42] "GET /robots.txt?1623531221371 HTTP/1.1" 404 -
+06/12/2021 02:53:52 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:53:53 PM  * Restarting with stat
+06/12/2021 02:53:55 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:53:56 PM  * Detected change in '/Users/reedperkins/Library/Mobile Documents/com~apple~CloudDocs/thesis-survey2/Server/server.py', reloading
+06/12/2021 02:53:56 PM  * Restarting with stat
+06/12/2021 02:53:58 PM  * Debugger pin code: 608-213-007
+06/12/2021 02:53:59 PM 127.0.0.1 - - [12/Jun/2021 14:53:59] "POST /api/assignment HTTP/1.1" 200 -
+06/12/2021 02:54:50 PM 127.0.0.1 - - [12/Jun/2021 14:54:50] "POST /api/assignment HTTP/1.1" 200 -

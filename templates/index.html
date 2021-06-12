@@ -1,10 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css"> -->
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    <div>
+        <h2>Please select an option</h2>
+        <div>
+            <input type="radio" id="option1" name="option" value="first" checked />
+            <label for="option1">I am downloading my assignment for the first time</label>
+        </div> 
+        <div>
+            <input type="radio" id="option2" name="option" value="redownload" />
+            <label for="option2">I need to redownload my assignment</label>
+        </div>
+        <div>
+            <input type="radio" id="option3" name="option" value="returning" />
+            <label for="option3">I am finished with my assignment and would like to download another</label>  
+        </div>  
+    </div>
+    <div>
+        <h2>Please enter your email</h2>
+        <div>
+            <input name="email" id="email" placeholder="you@example.com" required/>
+            <label for="email">Email</label>
+        </div>
+    </div>
+    <div>
+        <button onclick="submit();">Download</button>
+    </div>
+    <script>
+        function validateEmail(email) {
+            return true;
+        }
+        function send(option, email) {
+            var req = new XMLHttpRequest();
+            req.open("POST", "/api/assignment", true);
+            req.responseType = "blob";
+            req.onload = function (event) {
+                if (req.status == 200) {
+                    var blob = req.response;
+                    console.log(blob.size);
+                    var link=document.createElement('a');
+                    link.href=window.URL.createObjectURL(blob);
+                    link.download="assignment.pdf";
+                    link.click();
+                } else {
+                    req.response.text()
+                        .then(t => alert(JSON.parse(t).message));
+                }
+            };
+            const body = JSON.stringify({option: option, email: email});
+            req.send(body);
+        }
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
 
-<h1>Welcome!</h1>
-<h2>Please enter your netid</h2>
-<form method="POST">
-    <label for="netid">netid</label>
-    <input name="netid">
-    <input name="submit" type="submit">
-</form>
+  
+        // function send(option, email) {
+        //     const base_url = '127.0.0.1:5000'
+        //     const xhr = new XMLHttpRequest();
+        //     const body = JSON.stringify({option: option, email: email});
+        //     xhr.open('GET', /api/assignment)
+        //     // xhr.open('POST', '/api/assignment', true);
+        //     // xhr.setRequestHeader('Content-Type', 'application/json');
+        //     // // xhr.onreadystatechange = function () {
+        //     // //     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        //     // //         console.log('it worked');
+        //     // //     }
+        //     // //     else {
+        //     // //         console.log('it failed');
+        //     // //     }
+        //     // // }
+        //     // xhr.onload = function(e) {
+        //     //     if (xhr.status == 200) {
+
+        //     //         console.log(xhr.getResponseHeader('content-disposition'));
+        //     //         // The actual download
+        //     //         var blob = new Blob([xhr.response], { type: 'application/pdf' });
+        //     //         var link = document.createElement('a');
+        //     //         link.href = window.URL.createObjectURL(blob);
+        //     //         link.download = 'assignment.pdf';
+
+        //     //         document.body.appendChild(link);
+        //     //         link.click();
+        //     //         document.body.removeChild(link);
+        //     //     }else{
+        //     //         //deal with your error state here
+        //     //     }
+        //     // };
+        //     xhr.send(body);
+        //     return;
+        // }
+        function submit() {
+            const option = document.querySelector('input[name="option"]:checked').value;
+            const email = document.getElementById('email').value;
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email!');
+                return;
+            }
+            send(option, email);
+            console.log(option);
+        }
+    </script>
+  </body>
+</html>  

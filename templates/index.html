@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
   </head>
   <body>
-    <h1>Welcome!</h1>
-    <div>
-        <h2>Please select an option</h2>
-        <div>
-            <input type="radio" id="option1" name="option" value="first" checked />
-            <label for="option1">I am downloading my assignment for the first time</label>
-        </div> 
-        <div>
-            <input type="radio" id="option2" name="option" value="redownload" />
-            <label for="option2">I need to redownload my assignment</label>
+    <div id="container">
+        <div id="header">
+            <h1>Welcome!</h1>
+            <p>
+                This is the landing page for Reed's musical annotation experiment.
+            </p>
         </div>
-        <div>
-            <input type="radio" id="option3" name="option" value="returning" />
-            <label for="option3">I am finished with my assignment and would like to download another</label>  
-        </div>  
-    </div>
-    <div>
-        <h2>Please enter your email</h2>
-        <div>
-            <input name="email" id="email" placeholder="you@example.com" required/>
-            <label for="email">Email</label>
+
+        <div id="content">
+            <div>
+                <h3>Please select an option</h3>
+                <div>
+                    <input type="radio" id="option1" name="option" value="first" checked />
+                    <label for="option1">I am downloading my assignment for the first time</label>
+                </div> 
+                <div>
+                    <input type="radio" id="option2" name="option" value="redownload" />
+                    <label for="option2">I need to redownload my assignment</label>
+                </div>
+                <div>
+                    <input type="radio" id="option3" name="option" value="returning" />
+                    <label for="option3">I am finished with my assignment and would like to download another</label>  
+                </div>  
+            </div>
+            <div>
+                <h3>Please enter your email</h3>
+                <div class="email">
+                    <input name="email" id="email" placeholder="you@example.com" required/>
+                    <!-- <label for="email">Email</label> -->
+                </div>
+                <div>
+                    <button id="submit" onclick="submit();">Download</button>
+                </div>
+            </div>
+            <div>
+                <p class="note">Your email is used to keep track of which assignment you download in case you lose it or would like to download another one. I promise that I won't spam you with anything :)</p>
+            <div>
         </div>
     </div>
-    <div>
-        <button onclick="submit();">Download</button>
-    </div>
+    
+    
     <script>
         function validateEmail(email) {
             return /[^@]+@[^@]+\.[^@]+/.test(email);

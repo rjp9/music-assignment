@@ -45,9 +45,29 @@ def create_event(email, option, id):
         [email, option, id, timestamp]
     )
 
-def get_next_assignment():
-    results = db_exec('SELECT * FROM events')
-    return ((len(results) // ANNOTATORS_PER_ASSIGNMENT) % TOTAL_ASSIGNMENTS) + 1
+def get_next_assignment(email):
+    all_assignments = set([i+1 for i in range(TOTAL_ASSIGNMENTS)])
+    logger.info(f'all {all_assignments}')
+    results = db_exec('''
+                        SELECT assignment_id 
+                        FROM events 
+                        GROUP BY assignment_id
+                        HAVING COUNT(assignment_id) >= (?);''',
+                        [ANNOTATORS_PER_ASSIGNMENT])
+    logger.info(f'completed {results}')
+    eligible_assignments = all_assignments.difference(*results)
+    if not eligible_assignments:
+        return 'all assignments completed'
+    logger.info(f'incomplete {eligible_assignments}')
+    results = db_exec('SELECT assignment_id FROM events WHERE email = (?);', [email])
+    logger.info(f'assigned to {email} {results}')
+    eligible_assignments = list(eligible_assignments.difference(*results))
+    logger.info(f'remaining {eligible_assignments}')
+    if not eligible_assignments:
+        return 'user has completed all assignments'
+    logger.info(f'assignment {eligible_assignments[0]}')
+    return eligible_assignments[0]
+
 # =====================
 
 
@@ -80,7 +100,6 @@ def hello_world():
 
 @app.route('/api/assignment', methods=['POST'])
 def handle_assignment():
-    logger.error('here')
     try:
         try:
             option = request.json['option']
@@ -88,26 +107,31 @@ def handle_assignment():
         except:
             logger.error(f'Bad request {request.data.decode()}')
             return error('Invalid email or option. Please double check your email and try again.')
+
         if option == 'first':
             if exists_in_db(email):
                 return error('''It looks like you've already donwloaded an assignment. If you need to redownload it, select the redownload option and try again.''')
-            assignment_id = get_next_assignment()
+            result = get_next_assignment(email)
+            if result == 'all assignments completed':
+                return error('No new assignments are available. The experiment is complete!')
+            assignment_id = result
             create_event(email, option, assignment_id)
             return pdf(assignment_id)
         elif option == 'redownload':
             if not exists_in_db(email):
-                return error('''It looks like you haven't downloaded an assignment for the first time. Double check your email and try again.''')
-            results = db_exec('''
-                SELECT assignment_id FROM events WHERE email = (?);
-                ''',
-                [email]
-            )
+                return error('''It looks like you haven't downloaded an assignment for the first time yet. Double check your email and try again.''')
+            results = db_exec('SELECT assignment_id FROM events WHERE email = (?);', [email])
             assignment_id = results[-1][0]
             return pdf(assignment_id)
         elif option == 'returning':
             if not exists_in_db(email):
-                return error('''It looks like you haven't downloaded an assignment for the first time. Double check your email and try again.''')
-            assignment_id = get_next_assignment()
+                return error('''It looks like you haven't downloaded an assignment for the first time yet. Double check your email and try again.''')
+            result = get_next_assignment(email)
+            if result == 'all assignments completed':
+                return error('No new assignments are available. The experiment is complete!')
+            elif result == 'user has completed all assignments':
+                return error('You have completed all assignments. Nice work!')
+            assignment_id = result
             create_event(email, option, assignment_id)
             return pdf(assignment_id)
         else:

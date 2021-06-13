@@ -53,10 +53,11 @@ div.email {
     height: 40px;
     flex: 1;
     margin-bottom: 10px;
+    font-size: 100%;
 }
 
 ::placeholder {
-    font-size: 1rem;
+    font-size: 100%;
 }
 
 p.note {

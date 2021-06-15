@@ -65,3 +65,7 @@ div.email {
 p.note {
     font-size: .5rem;
 }
+
+#dropZone {
+    height: 200px;
+}

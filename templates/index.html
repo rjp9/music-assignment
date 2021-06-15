@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
+    <script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
   </head>
   <body>
     <div id="container">
@@ -11,7 +12,6 @@
                 This is the landing page for Reed's musical annotation experiment.
             </p>
         </div>
-
         <div id="content">
             <div>
                 <h3>Please select an option</h3>
@@ -43,46 +43,5 @@
             </div>
         </div>
     </div>
-    
-    
-    <script>
-        function validateEmail(email) {
-            return /[^@]+@[^@]+\.[^@]+/.test(email);
-        }
-        function send(option, email) {
-            var req = new XMLHttpRequest();
-            req.open("POST", "/api/assignment", true);
-            req.setRequestHeader('Content-Type', 'application/json');
-            req.responseType = "blob";
-            req.onload = function (event) {
-                if (req.status == 200) {
-                    if(req.response.type === 'application/pdf') {
-                        const header = req.getResponseHeader('content-disposition')
-                        const filename = /filename=(assignment\d+.pdf)/.exec(header)[1];
-                        var blob = req.response;
-                        var link = document.createElement('a');
-                        link.href = window.URL.createObjectURL(blob);
-                        link.download = filename;
-                        link.click();
-                    } else {
-                        req.response.text()
-                        .then(t => alert(JSON.parse(t).message));
-                    }
-                }
-            };
-            const body = JSON.stringify({option: option, email: email});
-            req.send(body);
-        }
-        function submit() {
-            const option = document.querySelector('input[name="option"]:checked').value;
-            const email = document.getElementById('email').value;
-            if (!validateEmail(email)) {
-                alert('Please enter a valid email!');
-                return;
-            }
-            send(option, email);
-            console.log(option);
-        }
-    </script>
   </body>
 </html>  

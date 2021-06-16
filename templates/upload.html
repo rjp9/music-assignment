@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
+    <script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+    <title>Reed | Thesis</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  </head>
+  <body>
+    <div id="container">
+        <div id="header">
+            <h1>Upload</h1>
+        </div>
+        <div id="content">
+            <div>
+                <h3>Please enter your email</h3>
+                <div class="email">
+                    <input name="email" id="email" placeholder="you@example.com" required/>
+                </div>
+                <div>
+                    <button onclick="clicked()">Choose File (single .pdf only!)</button>
+                    <input type="file" id="file" onchange="uploadAssignment(this)" accept="application//pdf, .pdf">
+                </div>
+            </div>
+            <hr>
+            <a href="/">Or go back...</a>
+        </div>
+    </div>
+  </body>
+</html>  

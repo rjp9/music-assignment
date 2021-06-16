@@ -4,10 +4,13 @@ from flask import Flask, render_template, request, send_file
 import sqlite3
 import json
 import logging
+from werkzeug.utils import secure_filename
+import os
 
 TOTAL_ASSIGNMENTS = 32
 ANNOTATORS_PER_ASSIGNMENT = 3
 DB_NAME = 'server.db'
+UPLOAD_DIR = 'uploaded/'
 
 app = Flask(__name__)
 con = sqlite3.connect(DB_NAME)
@@ -19,7 +22,13 @@ logging.basicConfig(format='%(asctime)s %(message)s')
 logger = logging.getLogger('server')
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.FileHandler('server.log'))
+# =================
 
+
+# =================
+# General stuff
+def timestamp():
+    return datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S%p')
 # =================
 
 
@@ -94,20 +103,47 @@ def pdf(assignment_id):
                 attachment_filename=f'{filename}',
                 as_attachment=True)
 
+def get_folder(email):
+    folder = UPLOAD_DIR + email
+    os.makedirs(folder, exist_ok=True)
+    return folder
+
+
 @app.route('/')
 def hello_world():
     return render_template('index.html')
 
-@app.route('/api/assignment', methods=['POST'])
-def handle_assignment():
+@app.route('/upload')
+def upload():
+    return render_template('upload.html')
+
+@app.route('/api/upload', methods=['GET', 'POST'])
+def handle_upload_request():
+    try:
+        email = request.form['email']
+        pdf = request.files['pdf']
+        if pdf:
+            filename = secure_filename(pdf.filename)
+            if filename and filename.split('.')[-1] == 'pdf':
+                folder = get_folder(email) # this could be really unsafe. oh well.
+                pdf.save(f'{folder}/{timestamp()}_{filename}')
+    except Exception as e:
+        logger.exception(e)
+        return error('Something went wrong. Contact reedperkins@byu.edu for assistance.')
+    return success();
+
+@app.route('/api/download', methods=['POST'])
+def handle_download_request():
     try:
         try:
+            # print(request.data.decode())
+            # data = json.loads(request.data.decode())
+            # print(data)
             option = request.json['option']
             email = request.json['email']
         except:
             logger.error(f'Bad request {request.data.decode()}')
             return error('Invalid email or option. Please double check your email and try again.')
-
         if option == 'first':
             if exists_in_db(email):
                 return error('''It looks like you've already donwloaded an assignment. If you need to redownload it, select the redownload option and try again.''')

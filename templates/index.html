@@ -3,7 +3,9 @@
   <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
     <script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
-  </head>
+    <title>Reed | Thesis</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
   <body>
     <div id="container">
         <div id="header">
@@ -26,7 +28,7 @@
                 <div>
                     <input type="radio" id="option3" name="option" value="returning" />
                     <label for="option3">I am finished with my assignment and would like to download another</label>  
-                </div>  
+                </div> 
             </div>
             <div>
                 <h3>Please enter your email</h3>
@@ -35,12 +37,20 @@
                     <!-- <label for="email">Email</label> -->
                 </div>
                 <div>
-                    <button id="submit" onclick="submit();">Download</button>
+                    <button id="submit" onclick="downloadAssignment();">Download</button>
                 </div>
             </div>
-            <div>
+            <!-- <div>
                 <p class="note">Your email is used to keep track of which assignment you download in case you lose it or would like to download another one. I promise that I won't spam you with anything :)</p>
+            </div> -->
+            <hr>
+            <div>
+                <h3>OR, if you are finished...</h3>
+                <div>
+                    <a href="/upload">I am finished with my assignment and would like to submit it</a> 
+                </div>   
             </div>
+
         </div>
     </div>
   </body>

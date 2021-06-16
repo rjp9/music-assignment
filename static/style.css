@@ -17,12 +17,12 @@ body {
 #container {
     width: 70%;
     height: auto;
-    border: 1px solid black;
+    border: 4px solid black;
     border-radius: 10px;
     background-color: white;
     /* border-radius: 10%; */
     overflow: hidden;
-    box-shadow: 10px 5px 5px gray;
+    /* box-shadow: 10px 5px 5px gray; */
 }
 
 #header {
@@ -31,6 +31,7 @@ body {
     flex-direction: column;
     background-color: rgba(24,154,214,.25);
     padding: 10px;
+    border-bottom: 2px solid black;
     /* color: #189ad6; */
 }
 
@@ -68,4 +69,8 @@ p.note {
 
 #dropZone {
     height: 200px;
+}
+
+#file {
+    display: none;
 }

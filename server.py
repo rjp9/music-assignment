@@ -22,6 +22,9 @@ logging.basicConfig(format='%(asctime)s %(message)s')
 logger = logging.getLogger('server')
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.FileHandler('server.log'))
+
+def log(msg):
+    logger.debug(f'{timestamp()} {msg}')
 # =================
 
 
@@ -49,32 +52,31 @@ def exists_in_db(email):
 def create_event(email, option, id):
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S%p')
     db_exec('''
-        INSERT INTO events (email, option, assignment_id, timestamp) VALUES (?, ?, ?, ?);
-        ''', 
-        [email, option, id, timestamp]
-    )
+                INSERT INTO events (email, option, assignment_id, timestamp) 
+                VALUES (?, ?, ?, ?);''', 
+                [email, option, id, timestamp])
 
 def get_next_assignment(email):
     all_assignments = set([i+1 for i in range(TOTAL_ASSIGNMENTS)])
-    logger.info(f'all {all_assignments}')
+    log(f'all {all_assignments}')
     results = db_exec('''
                         SELECT assignment_id 
                         FROM events 
                         GROUP BY assignment_id
                         HAVING COUNT(assignment_id) >= (?);''',
                         [ANNOTATORS_PER_ASSIGNMENT])
-    logger.info(f'completed {results}')
+    log(f'completed {results}')
     eligible_assignments = all_assignments.difference(*results)
     if not eligible_assignments:
         return 'all assignments completed'
-    logger.info(f'incomplete {eligible_assignments}')
+    log(f'incomplete {eligible_assignments}')
     results = db_exec('SELECT assignment_id FROM events WHERE email = (?);', [email])
-    logger.info(f'assigned to {email} {results}')
+    log(f'assigned to {email} {results}')
     eligible_assignments = list(eligible_assignments.difference(*results))
-    logger.info(f'remaining {eligible_assignments}')
+    log(f'remaining {eligible_assignments}')
     if not eligible_assignments:
         return 'user has completed all assignments'
-    logger.info(f'assignment {eligible_assignments[0]}')
+    log(f'assignment {eligible_assignments[0]}')
     return eligible_assignments[0]
 
 # =====================
@@ -122,13 +124,14 @@ def handle_upload_request():
     try:
         email = request.form['email']
         pdf = request.files['pdf']
+        log(f'**processing email {email} upload')
         if pdf:
             filename = secure_filename(pdf.filename)
             if filename and filename.split('.')[-1] == 'pdf':
                 folder = get_folder(email) # this could be really unsafe. oh well.
                 pdf.save(f'{folder}/{timestamp()}_{filename}')
     except Exception as e:
-        logger.exception(e)
+        log(str(e))
         return error('Something went wrong. Contact reedperkins@byu.edu for assistance.')
     return success();
 
@@ -136,11 +139,9 @@ def handle_upload_request():
 def handle_download_request():
     try:
         try:
-            # print(request.data.decode())
-            # data = json.loads(request.data.decode())
-            # print(data)
             option = request.json['option']
             email = request.json['email']
+            log(f'**processing {email} download')
         except:
             logger.error(f'Bad request {request.data.decode()}')
             return error('Invalid email or option. Please double check your email and try again.')
@@ -171,10 +172,10 @@ def handle_download_request():
             create_event(email, option, assignment_id)
             return pdf(assignment_id)
         else:
-            logger.error(f'invalid option {option}')
+            log(f'invalid option {option}')
             return error('Invalid option.')
     except Exception as e:
-        logger.exception(e)
+        log(str(e))
         return error('Server error. Contact reedperkins@byu.edu for assistence.')
 
 if __name__ == '__main__':

@@ -121,3 +121,13 @@ div.email {
 .xhr-block {
     margin-bottom: 10px;
 }
+
+@media (max-width: 566px) {
+    .likert {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .radio-group label {
+        display: inline;
+    }
+}

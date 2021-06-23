@@ -1,7 +1,7 @@
 import datetime
 from dbutils import DB_NAME
 from flask import Flask, render_template, request, send_file
-import sqlite3
+import sqlite3 as sql
 import json
 import logging
 from werkzeug.utils import secure_filename
@@ -13,13 +13,11 @@ DB_NAME = 'server.db'
 UPLOAD_DIR = 'uploaded/'
 
 app = Flask(__name__)
-con = sqlite3.connect(DB_NAME)
 
 
 # ==================
 # Logging 
-logging.basicConfig(format='%(asctime)s %(message)s')
-logger = logging.getLogger('server')
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.FileHandler('server.log'))
 
@@ -31,35 +29,32 @@ def log(msg):
 # =================
 # General stuff
 def timestamp():
-    return datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S%p')
+    return datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 # =================
-
-
 
 # ================
 # DB stuff
-def db_exec(sql, args=[]):
-    cur = con.cursor()
-    cur.execute(sql, args)
-    con.commit()
-    results = cur.fetchall()
-    return results if results else []
+def exec(sql_stmt, args=[]):
+    with sql.connect(DB_NAME) as con:
+        cur = con.cursor()
+        cur.execute(sql_stmt, args)
+        con.commit()
+        results = cur.fetchall()
+        return results if results else []
 
 def exists_in_db(email):
-    results = db_exec('SELECT * FROM events WHERE email = (?);', [email])
+    results = exec('SELECT * FROM events WHERE email = (?);', [email])
     return results and len(results) != 0
 
 def create_event(email, option, id):
-    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S%p')
-    db_exec('''
-                INSERT INTO events (email, option, assignment_id, timestamp) 
-                VALUES (?, ?, ?, ?);''', 
-                [email, option, id, timestamp])
+    exec('''INSERT INTO events (email, option, assignment_id, timestamp) 
+            VALUES (?, ?, ?, ?);''', 
+            [email, option, id, timestamp()])
 
 def get_next_assignment(email):
     all_assignments = set([i+1 for i in range(TOTAL_ASSIGNMENTS)])
     log(f'all {all_assignments}')
-    results = db_exec('''
+    results = exec('''
                         SELECT assignment_id 
                         FROM events 
                         GROUP BY assignment_id
@@ -70,7 +65,7 @@ def get_next_assignment(email):
     if not eligible_assignments:
         return 'all assignments completed'
     log(f'incomplete {eligible_assignments}')
-    results = db_exec('SELECT assignment_id FROM events WHERE email = (?);', [email])
+    results = exec('SELECT assignment_id FROM events WHERE email = (?);', [email])
     log(f'assigned to {email} {results}')
     eligible_assignments = list(eligible_assignments.difference(*results))
     log(f'remaining {eligible_assignments}')
@@ -122,6 +117,14 @@ def upload():
 @app.route('/api/upload', methods=['GET', 'POST'])
 def handle_upload_request():
     try:
+        univ = request.form['univ']
+        years = request.form['years']
+        inst = request.form['inst']
+        diff = request.form['diff']
+        feedback = request.form['feedback']
+        log([univ, years, inst, diff, feedback])
+
+
         email = request.form['email']
         pdf = request.files['pdf']
         log(f'**processing email {email} upload')
@@ -130,6 +133,17 @@ def handle_upload_request():
             if filename and filename.split('.')[-1] == 'pdf':
                 folder = get_folder(email) # this could be really unsafe. oh well.
                 pdf.save(f'{folder}/{timestamp()}_{filename}')
+                data = json.dumps({
+                    "univ": univ, 
+                    "years": years,
+                    "inst": inst,
+                    "diff": diff,
+                    "feedback": feedback,
+                    "filename": filename
+                })
+                exec('''INSERT INTO uploads (email, timestamp, data) 
+                        VALUES (?, ?, ?);''', 
+                        [email, timestamp(), data])
     except Exception as e:
         log(str(e))
         return error('Something went wrong. Contact reedperkins@byu.edu for assistance.')
@@ -157,7 +171,7 @@ def handle_download_request():
         elif option == 'redownload':
             if not exists_in_db(email):
                 return error('''It looks like you haven't downloaded an assignment for the first time yet. Double check your email and try again.''')
-            results = db_exec('SELECT assignment_id FROM events WHERE email = (?);', [email])
+            results = exec('SELECT assignment_id FROM events WHERE email = (?);', [email])
             assignment_id = results[-1][0]
             return pdf(assignment_id)
         elif option == 'returning':
@@ -179,4 +193,4 @@ def handle_download_request():
         return error('Server error. Contact reedperkins@byu.edu for assistence.')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000)
+    app.run(debug=True)

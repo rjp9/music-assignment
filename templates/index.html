@@ -34,15 +34,14 @@
                 <h3>Please enter your email</h3>
                 <div class="email">
                     <input name="email" id="email" placeholder="you@example.com" required/>
-                    <!-- <label for="email">Email</label> -->
                 </div>
-                <div>
+                <div class="xhr-block">
                     <button id="submit" onclick="downloadAssignment();">Download</button>
+                    <div class="status">
+                        Status: <span id="download-status">Ready</span>
+                    </div>
                 </div>
             </div>
-            <!-- <div>
-                <p class="note">Your email is used to keep track of which assignment you download in case you lose it or would like to download another one. I promise that I won't spam you with anything :)</p>
-            </div> -->
             <hr>
             <div>
                 <h3>OR, if you are finished...</h3>

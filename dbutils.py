@@ -2,13 +2,13 @@ import sys
 import sqlite3
 
 DB_NAME = 'server.db'
-con = sqlite3.connect(DB_NAME)
 
-def db_exec(sql):
-    cur = con.cursor()
-    cur.execute(sql)
-    con.commit()
-    cur.close()
+def exec(sql):
+    with sqlite3.connect(DB_NAME) as con:
+        cur = con.cursor()
+        cur.execute(sql)
+        con.commit()
+        cur.close()
 
 def arg_error():
     print('Available options: create clear delete')
@@ -16,7 +16,7 @@ def arg_error():
 
 def run(cmd):
     if cmd == 'create':
-        create_cmd = '''
+        exec('''
         CREATE TABLE IF NOT EXISTS events (
             event_id INTEGER PRIMARY KEY NOT NULL,
             email TEXT NOT NULL,
@@ -24,14 +24,22 @@ def run(cmd):
             assignment_id INTEGER NOT NULL,
             timestamp TEXT NOT NULL
         )
-        '''
-        db_exec(create_cmd)
+        ''')
+
+        exec('''
+            CREATE TABLE IF NOT EXISTS uploads (
+                upload_id INTEGER PRIMARY KEY NOT NULL,
+                email TEXT NOT NULL,
+                timestamp TEXT NOT NULL,
+                data TEXT NOT NULL
+            )
+        ''')
     elif cmd == 'clear':
-        clear_cmd = 'DELETE FROM events'
-        db_exec(clear_cmd)
+        exec('DELETE FROM events')
+        exec('DELETE FROM uploads')
     elif cmd == 'delete':
-        delete_cmd = 'DROP TABLE events'
-        db_exec(delete_cmd)
+        exec('DROP TABLE events')
+        exec('DROP TABLE uploads')
     else:
         arg_error()
     

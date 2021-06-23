@@ -13,13 +13,113 @@
         </div>
         <div id="content">
             <div>
+                <h3>Please fill out the following</h3> 
+                <div>
+                    <div class="q">
+                        <div class="q-title">Are you a music-related major/minor at the university level? <span class="required">(* Required)</span></div>
+                        <div class="q-block">
+                            <div>
+                                <input type="radio" id="univ-n", name="univ", value="n" />
+                                <label for="univ-n">No</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="univ-y", name="univ", value="y" />
+                                <label for="univ-n">Yes</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="q">
+                        <div class="q-title">How many years of musical training/practice have you had? <span class="required">(* Required)</span></div>
+                        <div class="q-block">
+                            <select id="years">
+                                <option value="0">&lt;1</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">10+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="q">
+                        <div class="q-title">How clear were the instructions for this assignment? <span class="required">(* Required)</span></div>
+                        <div class="q-block likert">
+                            <div class="radio-group">Inscrutable</div>
+                            <div class="radio-group">
+                                <input type="radio" id="inst-1", name="inst", value="1" />
+                                <label for="inst-1">1</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="inst-2", name="inst", value="2" />
+                                <label for="inst-2">2</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="inst-3", name="inst", value="3" />
+                                <label for="inst-3">3</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="inst-4", name="inst", value="4" />
+                                <label for="inst-4">4</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="inst-5", name="inst", value="5" />
+                                <label for="inst-5">5</label>
+                            </div>
+                            <div class="radio-group">Crystal clear</div>
+                        </div>
+                    </div>
+                    <div class="q">
+                        <div class="q-title">How difficult was this assignment? <span class="required">(* Required)</span></div>
+                        <div class="q-block likert">
+                            <div class="radio-group">Very easy</div>
+                            <div class="radio-group">
+                                <input type="radio" id="diff-1", name="diff", value="1" />
+                                <label for="diff-1">1</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="diff-2", name="diff", value="2" />
+                                <label for="diff-2">2</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="diff-3", name="diff", value="3" />
+                                <label for="diff-3">3</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="diff-4", name="diff", value="4" />
+                                <label for="diff-4">4</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="diff-5", name="diff", value="5" />
+                                <label for="diff-5">5</label>
+                            </div>
+                            <div class="radio-group">Very difficult</div>
+                        </div>
+                    </div>
+                    <div class="q">
+                        <div class="q-title">Any other feedback? <span class="optional">(Optional)</span></div>
+                        <div class="q-block">
+                            <div class="feedback-wrapper">
+                                <textarea name="feedback-text" id="feedback-text"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <h3>Please enter your email</h3>
                 <div class="email">
                     <input name="email" id="email" placeholder="you@example.com" required/>
                 </div>
-                <div>
+                <div class="xhr-block">
                     <button onclick="clicked()">Choose File (single .pdf only!)</button>
-                    <input type="file" id="file" onchange="uploadAssignment(this)" accept="application//pdf, .pdf">
+                    <input type="file" id="file" onchange="uploadAssignment(this)" accept="application/pdf, .pdf">
+                    <div class="status">
+                        Status: <span id="download-status">Ready</span>
+                    </div>
                 </div>
             </div>
             <hr>

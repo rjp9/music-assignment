@@ -1,17 +1,16 @@
-html, body {
+html {
     width: 100%;
     height: 100%;
     margin: 0;
 }
 
 body {
+    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     background-color: #f8f8fb;
-    margin-top: 10%;
 }
 
 #container {
@@ -20,9 +19,7 @@ body {
     border: 4px solid black;
     border-radius: 10px;
     background-color: white;
-    /* border-radius: 10%; */
-    overflow: hidden;
-    /* box-shadow: 10px 5px 5px gray; */
+    margin: 5% 0 5%;
 }
 
 #header {
@@ -47,7 +44,6 @@ body {
     margin: 10px 20px 20px 20px;
 }
 
-
 div.email {
     display: flex;
 }
@@ -63,14 +59,65 @@ div.email {
     font-size: 100%;
 }
 
-p.note {
-    font-size: .5rem;
-}
-
-#dropZone {
-    height: 200px;
-}
-
 #file {
     display: none;
+}
+
+.radio-group {
+    display: inline-block;
+    text-align: center;
+    margin: 5px 10px 0px 10px;
+}
+
+.radio-group label {
+    display: block;
+}
+
+.q {
+    margin: 30px 0 30px 0;
+}
+
+.q-block {
+    margin: 10px 0 10px 0;
+}
+
+.q-title {
+    font-weight: bold;
+}
+
+.optional {
+    font-weight: normal;
+    color: gray
+}
+
+.required {
+    font-weight: normal;
+    color: red;
+}
+
+.feedback-wrapper {
+    display: flex;
+}
+
+#feedback-text {
+    flex: 1;
+    min-height: 100px;
+}
+
+.likert {
+    display: flex;
+    justify-content: center;
+}
+
+#years {
+    width: 150px;
+    height: 30px;
+}
+
+.status {
+    display: inline;
+}
+
+.xhr-block {
+    margin-bottom: 10px;
 }

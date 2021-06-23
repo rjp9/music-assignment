@@ -5,3 +5,4 @@ venv/
 *.pyc
 server.log
 server.db
+uploaded/

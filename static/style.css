@@ -131,3 +131,7 @@ div.email {
         display: inline;
     }
 }
+
+hr {
+    margin-top: 20px;
+}

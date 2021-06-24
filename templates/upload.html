@@ -14,9 +14,10 @@
         <div id="content">
             <div>
                 <h3>Please fill out the following</h3> 
+                <span class="required">(*  = Required)</span>
                 <div>
                     <div class="q">
-                        <div class="q-title">Are you a music-related major/minor at the university level? <span class="required">(* Required)</span></div>
+                        <div class="q-title">*Are you a music-related major/minor at the university level?</div>
                         <div class="q-block">
                             <div>
                                 <input type="radio" id="univ-n", name="univ", value="n" />
@@ -29,7 +30,7 @@
                         </div>
                     </div>
                     <div class="q">
-                        <div class="q-title">How many years of musical training/practice have you had? <span class="required">(* Required)</span></div>
+                        <div class="q-title">*How many years of musical training/practice have you had?</div>
                         <div class="q-block">
                             <select id="years">
                                 <option value="0">&lt;1</option>
@@ -48,7 +49,7 @@
                         </div>
                     </div>
                     <div class="q">
-                        <div class="q-title">How clear were the instructions for this assignment? <span class="required">(* Required)</span></div>
+                        <div class="q-title">*How clear were the instructions for this assignment?</div>
                         <div class="q-block likert">
                             <div class="radio-group">Inscrutable</div>
                             <div class="radio-group">
@@ -75,30 +76,126 @@
                         </div>
                     </div>
                     <div class="q">
-                        <div class="q-title">How difficult was this assignment? <span class="required">(* Required)</span></div>
+                        <div class="q-title">*How difficult was the hymn portion of this assignment?</div>
                         <div class="q-block likert">
                             <div class="radio-group">Very easy</div>
                             <div class="radio-group">
-                                <input type="radio" id="diff-1", name="diff", value="1" />
-                                <label for="diff-1">1</label>
+                                <input type="radio" id="hymn-diff-1", name="hymn-diff", value="1" />
+                                <label for="hymn-diff-1">1</label>
                             </div>
                             <div class="radio-group">
-                                <input type="radio" id="diff-2", name="diff", value="2" />
-                                <label for="diff-2">2</label>
+                                <input type="radio" id="hymn-diff-2", name="hymn-diff", value="2" />
+                                <label for="hymn-diff-2">2</label>
                             </div>
                             <div class="radio-group">
-                                <input type="radio" id="diff-3", name="diff", value="3" />
-                                <label for="diff-3">3</label>
+                                <input type="radio" id="hymn-diff-3", name="hymn-diff", value="3" />
+                                <label for="hymn-diff-3">3</label>
                             </div>
                             <div class="radio-group">
-                                <input type="radio" id="diff-4", name="diff", value="4" />
-                                <label for="diff-4">4</label>
+                                <input type="radio" id="hymn-diff-4", name="hymn-diff", value="4" />
+                                <label for="hymn-diff-4">4</label>
                             </div>
                             <div class="radio-group">
-                                <input type="radio" id="diff-5", name="diff", value="5" />
-                                <label for="diff-5">5</label>
+                                <input type="radio" id="hymn-diff-5", name="hymn-diff", value="5" />
+                                <label for="hymn-diff-5">5</label>
                             </div>
                             <div class="radio-group">Very difficult</div>
+                        </div>
+                    </div>
+                    <div class="q">
+                        <div class="q-title">*Before you took this assignment, how familiar were you with the hymns that you annotated?</div>
+                        <div class="q-block likert">
+                            <div class="radio-group">Unfamiliar</div>
+                            <div class="radio-group">
+                                <input type="radio" id="hymn-fam-1", name="hymn-fam", value="1" />
+                                <label for="hymn-fam-1">1</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="hymn-fam-2", name="hymn-fam", value="2" />
+                                <label for="hymn-fam-2">2</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="hymn-fam-3", name="hymn-fam", value="3" />
+                                <label for="hymn-fam-3">3</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="hymn-fam-4", name="hymn-fam", value="4" />
+                                <label for="hymn-fam-4">4</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="hymn-fam-5", name="hymn-fam", value="5" />
+                                <label for="hymn-fam-5">5</label>
+                            </div>
+                            <div class="radio-group">Very familliar</div>
+                        </div>
+                    </div>
+                    <div class="q">
+                        <div class="q-title">*How difficult was the jazz portion of this assignment?</div>
+                        <div class="q-block likert">
+                            <div class="radio-group">Very easy</div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-diff-1", name="jazz-diff", value="1" />
+                                <label for="jazz-diff-1">1</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-diff-2", name="jazz-diff", value="2" />
+                                <label for="jazz-diff-2">2</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-diff-3", name="jazz-diff", value="3" />
+                                <label for="jazz-diff-3">3</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-diff-4", name="jazz-diff", value="4" />
+                                <label for="jazz-diff-4">4</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-diff-5", name="jazz-diff", value="5" />
+                                <label for="jazz-diff-5">5</label>
+                            </div>
+                            <div class="radio-group">Very difficult</div>
+                        </div>
+                    </div>
+                    <div class="q">
+                        <div class="q-title">*Before you took this assignment, how familiar were you with the jazz solo that you annotated?</div>
+                        <div class="q-block likert">
+                            <div class="radio-group">Unfamiliar</div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-fam-1", name="jazz-fam", value="1" />
+                                <label for="jazz-fam-1">1</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-fam-2", name="jazz-fam", value="2" />
+                                <label for="jazz-fam-2">2</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-fam-3", name="jazz-fam", value="3" />
+                                <label for="jazz-fam-3">3</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-fam-4", name="jazz-fam", value="4" />
+                                <label for="jazz-fam-4">4</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="jazz-fam-5", name="jazz-fam", value="5" />
+                                <label for="jazz-fam-5">5</label>
+                            </div>
+                            <div class="radio-group">Very familliar</div>
+                        </div>
+                    </div>
+                    <div class="q">
+                        <div class="q-title">*How much time did you spend on this assignment?</div>
+                        <div class="q-block">
+                            <select id="time">
+                                <option value="0">&lt;10 min</option>
+                                <option value="1">10 min</option>
+                                <option value="2">20 min</option>
+                                <option value="3">30 min</option>
+                                <option value="4">40 min</option>
+                                <option value="5">50 min</option>
+                                <option value="6">1 hour</option>
+                                <option value="7">&gt;1 hour</option>
+                            </select>
                         </div>
                     </div>
                     <div class="q">

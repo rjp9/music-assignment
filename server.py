@@ -116,13 +116,14 @@ def upload():
 
 @app.route('/api/upload', methods=['GET', 'POST'])
 def handle_upload_request():
+    log('here')
     try:
-        univ = request.form['univ']
-        years = request.form['years']
-        inst = request.form['inst']
-        diff = request.form['diff']
-        feedback = request.form['feedback']
-        log([univ, years, inst, diff, feedback])
+        # univ = request.form['univ']
+        # years = request.form['years']
+        # inst = request.form['inst']
+        # diff = request.form['diff']
+        # feedback = request.form['feedback']
+        # log([univ, years, inst, diff, feedback])
 
 
         email = request.form['email']
@@ -133,21 +134,15 @@ def handle_upload_request():
             if filename and filename.split('.')[-1] == 'pdf':
                 folder = get_folder(email) # this could be really unsafe. oh well.
                 pdf.save(f'{folder}/{timestamp()}_{filename}')
-                data = json.dumps({
-                    "univ": univ, 
-                    "years": years,
-                    "inst": inst,
-                    "diff": diff,
-                    "feedback": feedback,
-                    "filename": filename
-                })
+                log(request.form.to_dict())
+                data = json.dumps(request.form.to_dict())
                 exec('''INSERT INTO uploads (email, timestamp, data) 
                         VALUES (?, ?, ?);''', 
                         [email, timestamp(), data])
-    except Exception as e:
-        log(str(e))
+    except:
+        logger.exception('error')
         return error('Something went wrong. Contact reedperkins@byu.edu for assistance.')
-    return success();
+    return success('Your file has successfully been submitted. Thank you!');
 
 @app.route('/api/download', methods=['POST'])
 def handle_download_request():

@@ -51,11 +51,15 @@ function validateFields() {
     try {
         const univ = document.querySelector('input[name="univ"]:checked').value;
         const years = document.getElementById("years").value;
-        const inst = document.querySelector('input[name="inst"]:checked').value;
-        const diff = document.querySelector('input[name="diff"]:checked').value;
+        const inst_diff = document.querySelector('input[name="inst"]:checked').value;
+        const hymn_diff = document.querySelector('input[name="hymn-diff"]:checked').value;
+        const hymn_fam = document.querySelector('input[name="hymn-fam"]:checked').value;
+        const jazz_diff = document.querySelector('input[name="jazz-diff"]:checked').value;
+        const jazz_fam = document.querySelector('input[name="jazz-fam"]:checked').value;
+        const time =document.getElementById("time").value;
         const feedback = document.getElementById("feedback-text").value;
-        console.log([univ, years, inst, diff, feedback])
-        return {univ, years, inst, diff, feedback};
+        console.log([univ, years, inst_diff, hymn_diff, hymn_fam, jazz_diff, jazz_fam, time, feedback])
+        return true;
     } catch {
         alert("Please complete all required fields!");
         return false;
@@ -82,9 +86,14 @@ function uploadAssignment(e) {
 
     const univ = document.querySelector('input[name="univ"]:checked').value;
     const years = document.getElementById("years").value;
-    const inst = document.querySelector('input[name="inst"]:checked').value;
-    const diff = document.querySelector('input[name="diff"]:checked').value;
+    const inst_diff = document.querySelector('input[name="inst"]:checked').value;
+    const hymn_diff = document.querySelector('input[name="hymn-diff"]:checked').value;
+    const hymn_fam = document.querySelector('input[name="hymn-fam"]:checked').value;
+    const jazz_diff = document.querySelector('input[name="jazz-diff"]:checked').value;
+    const jazz_fam = document.querySelector('input[name="jazz-fam"]:checked').value;
+    const time = document.getElementById("time").value;
     const feedback = document.getElementById("feedback-text").value;
+
     const status = document.getElementById('download-status');
     const email = document.getElementById('email').value;
     const data = new FormData();
@@ -95,16 +104,34 @@ function uploadAssignment(e) {
 
     data.append("univ", univ);
     data.append("years", years);
-    data.append("inst", inst);
-    data.append("diff", diff);
+    data.append("inst_diff", inst_diff);
+    data.append("hymn_diff", hymn_diff);
+    data.append("hymn_fam", hymn_fam);
+    data.append("jazz_diff", jazz_diff);
+    data.append("jazz_fam", jazz_fam);
+    data.append("time", time);
     data.append("feedback", feedback);
 
     data.append("email", email);
     data.append("pdf", pdf);
     const xhr = new XMLHttpRequest();
+    // xhr.onload = () => {
+    //     if (xhr.status === 4
+    //     xhr.response.text().then(t => {
+    //         console.log(t);
+    //         status.innerHTML = t;
+    //         alert(JSON.parse(t).message);
+    //     });
+    // };
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
-            const message = xhr.status === 200 ? 'Success!' : 'Something went wrong :(. Please contact reedperkins@byu.edu for assistance.';
+            let message;
+            if (xhr.status === 200) {
+                message = JSON.parse(xhr.responseText).message;
+            } else {
+                console.log('here');
+                message = 'Something went wrong :(. Please contact reedperkins@byu.edu for assistance.';
+            }
             status.innerHTML = message;
             alert(message);
         } else {

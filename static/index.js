@@ -105,8 +105,8 @@ function uploadAssignment(e) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             const message = xhr.status === 200 ? 'Success!' : 'Something went wrong :(. Please contact reedperkins@byu.edu for assistance.';
+            status.innerHTML = message;
             alert(message);
-            status.innerHTML = 'Ready'
         } else {
             status.innerHTML = 'Uploading...';
         }

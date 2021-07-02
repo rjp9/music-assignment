@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
-    <script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <script type="text/javascript" src="static/index.js"></script>
     <title>Reed | Thesis</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   </head>
   <body>
     <div id="container">
         <div id="header">
-            <h1>Upload</h1>
+            <h1>Submit</h1>
         </div>
+        <nav>
+            <ul>
+                <li><a href="/download">Download</a></li>
+                <div></div>
+                <li><a href="/submit">Submit</a></li>
+                <div></div>
+                <li><a href="/">About</a></li>
+            </ul>
+        </nav>
         <div id="content">
             <div>
                 <h3>Please fill out the following</h3> 
                 <span class="required">(*  = Required)</span>
                 <div>
                     <div class="q">
-                        <div class="q-title">*Are you a music-related major/minor at the university level?</div>
+                        <div class="q-title">*Have you competed or are in the process of completing a music-related major/minor at the university level?</div>
                         <div class="q-block">
                             <div>
                                 <input type="radio" id="univ-n", name="univ", value="n" />
@@ -219,8 +228,6 @@
                     </div>
                 </div>
             </div>
-            <hr>
-            <a href="/">Or go back...</a>
         </div>
     </div>
   </body>

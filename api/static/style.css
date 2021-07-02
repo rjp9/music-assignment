@@ -142,3 +142,25 @@ img {
     height: 100%;
     object-fit: contain;
 }
+
+nav {
+    margin: 10px 20px 10px;
+    /* display: flex;
+    justify-content: center; */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul div {
+    width: 1px;
+    height: 15px;
+    background-color: black;
+    display: inline-block;
+}

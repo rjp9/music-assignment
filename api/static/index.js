@@ -15,17 +15,18 @@ function downloadAssignment() {
     req.open("POST", "/api/download", true);
     req.setRequestHeader('Content-Type', 'application/json');
     req.responseType = "blob";
-    req.onreadystatechange = () => {
-        if (req.readyState === 4) {
-            status.innerHTML = 'Success!'
-        } else {
-            status.innerHTML = 'Downloading...'
-        }
-    }
+    // req.onreadystatechange = () => {
+    //     if (req.readyState === 4) {
+    //         status.innerHTML = 'Success!'
+    //     } else {
+    //         status.innerHTML = 'Downloading...'
+    //     }
+    // }
 
     // req.onprogress = (e) => { console.log(e); }
     req.onload = function (event) {
         if (req.status == 200) {
+
             if(req.response.type === 'application/pdf') {
                 const header = req.getResponseHeader('content-disposition')
                 const filename = /filename=(assignment\d+.pdf)/.exec(header)[1];
@@ -34,6 +35,7 @@ function downloadAssignment() {
                 link.href = window.URL.createObjectURL(blob);
                 link.download = filename;
                 link.click();
+                window.location.replace('/thanks');
             } else {
                 req.response.text()
                 .then(t => alert(JSON.parse(t).message));
@@ -128,12 +130,13 @@ function uploadAssignment(e) {
             let message;
             if (xhr.status === 200) {
                 message = JSON.parse(xhr.responseText).message;
+                window.location.replace('/success')
             } else {
                 console.log('here');
                 message = 'Something went wrong :(. Please contact reedperkins@byu.edu for assistance.';
             }
             status.innerHTML = message;
-            alert(message);
+            // alert(message);
         } else {
             status.innerHTML = 'Uploading...';
         }

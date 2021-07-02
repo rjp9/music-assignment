@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, send_file
 import sqlite3 as sql
 import json
 import logging
-from werkzeug.utils import secure_filename
+from werkzeug.utils import redirect, secure_filename
 import os
 
 TOTAL_ASSIGNMENTS = 32
@@ -110,12 +110,24 @@ def get_folder(email):
 def hello_world():
     return render_template('index.html')
 
-@app.route('/upload')
-def upload():
+@app.route('/success')
+def success_route():
+    return render_template('success.html')
+
+@app.route('/thanks')
+def thanks():
+    return render_template('thanks.html') 
+
+@app.route('/submit')
+def submit():
     return render_template('upload.html')
 
-@app.route('/api/upload', methods=['GET', 'POST'])
-def handle_upload_request():
+@app.route('/download')
+def download():
+    return render_template('download.html')
+
+@app.route('/api/upload', methods=['POST'])
+def handle_submit_request():
     log('here')
     try:
         # univ = request.form['univ']
@@ -142,7 +154,7 @@ def handle_upload_request():
     except:
         logger.exception('error')
         return error('Something went wrong. Contact reedperkins@byu.edu for assistance.')
-    return success('Your file has successfully been submitted. Thank you!');
+    return success()
 
 @app.route('/api/download', methods=['POST'])
 def handle_download_request():

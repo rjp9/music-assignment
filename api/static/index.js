@@ -131,8 +131,10 @@ function uploadAssignment(e) {
             if (xhr.status === 200) {
                 const result = JSON.parse(xhr.responseText);
                 message = result.message;
-                if (result.status === 'ok') {
-                    window.location.replace('/success')
+                if (result.status === 'success') {
+                    status.innerHTML = message;
+                    window.location.replace('/success');
+                    return;
                 }
             } else {
                 console.log('here');

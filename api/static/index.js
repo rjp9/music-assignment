@@ -129,14 +129,17 @@ function uploadAssignment(e) {
         if (xhr.readyState === 4) {
             let message;
             if (xhr.status === 200) {
-                message = JSON.parse(xhr.responseText).message;
-                window.location.replace('/success')
+                const result = JSON.parse(xhr.responseText);
+                message = result.message;
+                if (result.status === 'ok') {
+                    window.location.replace('/success')
+                }
             } else {
                 console.log('here');
                 message = 'Something went wrong :(. Please contact reedperkins@byu.edu for assistance.';
             }
             status.innerHTML = message;
-            // alert(message);
+            alert(message);
         } else {
             status.innerHTML = 'Uploading...';
         }

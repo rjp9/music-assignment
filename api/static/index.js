@@ -31,11 +31,16 @@ function downloadAssignment() {
                 const header = req.getResponseHeader('content-disposition')
                 const filename = /filename=(assignment\d+.pdf)/.exec(header)[1];
                 var blob = req.response;
+                // window.open(blob, '_blank');
                 var link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
+                // link.target = '_blank';
                 link.download = filename;
+                link.onclick = () => {
+                    setTimeout(() => { window.location = '/thanks' }, 1500);
+                }
                 link.click();
-                window.location.replace('/thanks');
+               
             } else {
                 req.response.text()
                 .then(t => alert(JSON.parse(t).message));

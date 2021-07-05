@@ -200,4 +200,4 @@ def handle_download_request():
         return error('Server error. Contact reedperkins@byu.edu for assistence.')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000, host='0.0.0.0')
